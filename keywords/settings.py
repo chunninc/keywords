@@ -162,3 +162,5 @@ DATABASES['default'] =  dj_database_url.config()
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
+NAVER_SEARCH_API_KEY = 'ca31cc984716862775ff6db5772f275a'
+DAUM_DATA_API_KEY = 'f96630d7a35363bec822688528c049a25cc4a3ad'
