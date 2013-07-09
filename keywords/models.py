@@ -11,9 +11,9 @@ class Query(models.Model):
 
 class Edge(models.Model):
     # The head of the edge
-    head = models.ForeignKey(Query)
+    head = models.ForeignKey(Query, related_name='outging_edge_set')
     # The tail of the edge
-    tail = models.ForeignKey(Query)
+    tail = models.ForeignKey(Query, related_name='incoming_edge_set')
 
     def __unicode__(self):
-        return self.head.text + ' -> ' + self.tail.text
+        return self.head.text + '->' + self.tail.text
