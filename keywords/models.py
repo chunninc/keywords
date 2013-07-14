@@ -1,10 +1,22 @@
 from django.db import models
 
 
+class Topic(models.Model):
+    # Topic keyword
+    keyword = models.CharField(max_length=100)
+    # Size of audience for this topic
+    audience_size = models.PositiveIntegerField()
+    
+    def __unicode__(self):
+        return '%s: %s' % (self.keyword, audience_size)
+
+
 class Query(models.Model):
     # The actual text for the query
     text = models.CharField(max_length=100)
-
+    # Topic this query belongs to
+    topic = models.ForeignKey(Topic)
+    
     def __unicode__(self):
         return self.text
 

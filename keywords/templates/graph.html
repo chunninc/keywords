@@ -71,4 +71,11 @@
     {% csrf_token %}
     {{ form }}    
   </form>
+  <ol>
+    {% for t in tf %}
+      {% if t.1 > 1 %}
+        <li>{{ t.0 }} ({{ t.1 }})</li>
+      {% endif %}
+    {% endfor %}
+  </ol>
 {% endblock %}
