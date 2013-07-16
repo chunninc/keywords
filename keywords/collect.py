@@ -21,6 +21,12 @@ def build_graph(seed):
         nodes = []
         # TODO: make this a priority queue and pop the most interesting keyword 
         query = seed.popleft()
+        try:
+            Query.objects.get(text=query)
+            print '%s is already in the database' % query
+            continue
+        except Query.DoesNotExist:
+            pass
         print 'Popped %s from queue' % query
         payload = {'key': settings.NAVER_SEARCH_API_KEY,
                    'query': query, 'target': 'recmd'}
