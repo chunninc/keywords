@@ -31,7 +31,7 @@ def home(request):
     
     while queue:
         n = n + 1
-        if n == 500: break
+        if n == 120: break
         q = queue.popleft()        
         t = queue2.popleft()
         if q in visited: continue
