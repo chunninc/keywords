@@ -63,6 +63,11 @@ class AdsAPI(object):
         r = requests.get(url, params=self.payload)
         return r.json()
 
+    def get_conversion_stats(self, campaign_ids=None, adgroup_ids=None):
+        url = '%s/%s/adcampaignconversions' % (FB, self.ad_account_id)
+        r = requests.get(url, params=self.payload)
+        return r.json()
+
     def get_reach_estimate(self, currency, targeting_spec):
         payload = {'currency': currency,
                    'targeting_spec': json.dumps(targeting_spec)}
